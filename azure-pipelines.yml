@@ -1,0 +1,36 @@
+trigger:
+  - '*'
+pr:
+- master
+
+pool:
+  vmImage: 'windows-latest'
+
+variables:
+  - group: 'GitHub PATs'
+  - name: ModuleName
+    value: mms-azure
+  - name: RepoPath
+    value: '\\files.umn.edu\OIT\Lines\MPT\PowershellRepository'
+  - name: RepoName
+    value: 'MPTLocalFSRepo'
+  - name: FailOnTestFailure
+    value: true
+  - name: GitHubPAT
+    value: $[variables.github_umn_edu_hss_repomodify]
+
+resources:
+  repositories:
+    - repository: umn_templates
+      endpoint: github.com_umn-oit-hosting-PS-Modules
+      type: github
+      name: umn-microsoft-automation/MMS-2024-Templates
+
+stages:
+- template: PSModules/umn-module.yml@umn_templates
+  parameters:
+    ModuleName: $(ModuleName)
+    RepoPath: $(RepoPath)
+    RepoName: $(RepoName)
+    FailOnTestFailure: ${{ variables.FailOnTestFailure }}
+    GitHubPAT: $(GitHubPAT)
