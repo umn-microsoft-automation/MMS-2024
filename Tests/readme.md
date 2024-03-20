@@ -12,3 +12,5 @@ Each function should get its own test file here, named for the function.
 Test files must end in `.Tests.ps1`.
 For example, to write a test file for the function `Get-ModuleTemplate` the file would
 be named `Get-ModuleTemplate.Tests.ps1`
+
+See <https://pester.dev/> to get started
