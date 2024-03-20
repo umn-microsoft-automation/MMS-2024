@@ -1,0 +1,33 @@
+trigger:
+  - '*'
+pr:
+- master
+
+pool:
+  vmImage: 'windows-latest'
+
+variables:
+  - group: 'GitHub PATs'
+  - name: ModuleName
+    value: mms-azure
+  - name: RepoName
+    value: 'MPTLocalFSRepo'
+  - name: FailOnTestFailure
+    value: true
+  - name: GitHubPAT
+    value: $[variables.github_umn_edu_hss_repomodify]
+
+resources:
+  repositories:
+    - repository: mms_templates
+      endpoint: github.com_mms
+      type: github
+      name: kcweeks/MMS-2024-Templates
+
+stages:
+- template: PSModules/mms-module.yml@mms_templates
+  parameters:
+    ModuleName: $(ModuleName)
+    RepoPath: $[variables.RepoPath]
+    RepoName: $(RepoName)
+    FailOnTestFailure: ${{ variables.FailOnTestFailure }}
