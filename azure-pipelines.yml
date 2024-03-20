@@ -19,13 +19,13 @@ variables:
 
 resources:
   repositories:
-    - repository: mms_templates
+    - repository: MMS-2024-Templates
       endpoint: github.com_mms
       type: github
-      name: kcweeks/MMS-2024-Templates
+      name: umn-microsoft-automation/MMS-2024-Templates
 
 stages:
-- template: PSModules/mms-module.yml@mms_templates
+- template: PSModules/mms-module.yml@MMS-2024-Templates
   parameters:
     ModuleName: $(ModuleName)
     RepoPath: $[variables.RepoPath]
