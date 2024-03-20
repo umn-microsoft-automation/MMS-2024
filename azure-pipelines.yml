@@ -14,6 +14,8 @@ variables:
     value: 'MPTLocalFSRepo'
   - name: FailOnTestFailure
     value: true
+  - name: RepoPath
+    value: $[variables.RepoPath]
   - name: GitHubPAT
     value: $[variables.github_umn_edu_hss_repomodify]
 
@@ -28,6 +30,6 @@ stages:
 - template: PSModules/mms-module.yml@MMS-2024-Templates
   parameters:
     ModuleName: $(ModuleName)
-    RepoPath: $[variables.RepoPath]
+    RepoPath: $(RepoPath)
     RepoName: $(RepoName)
     FailOnTestFailure: ${{ variables.FailOnTestFailure }}
