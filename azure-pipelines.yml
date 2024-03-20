@@ -7,17 +7,13 @@ pool:
   vmImage: 'windows-latest'
 
 variables:
-  - group: 'GitHub PATs'
+  - group: 'Library'
   - name: ModuleName
     value: mms-azure
   - name: RepoName
-    value: 'MPTLocalFSRepo'
+    value: 'LocalFSRepo'
   - name: FailOnTestFailure
     value: true
-  - name: RepoPath
-    value: $[variables.RepoPath]
-  - name: GitHubPAT
-    value: $[variables.github_umn_edu_hss_repomodify]
 
 resources:
   repositories:
@@ -30,6 +26,6 @@ stages:
 - template: PSModules/mms-module.yml@MMS-2024-Templates
   parameters:
     ModuleName: $(ModuleName)
-    RepoPath: $(RepoPath)
+    RepoPath: '$(RepoPath)'
     RepoName: $(RepoName)
     FailOnTestFailure: ${{ variables.FailOnTestFailure }}
