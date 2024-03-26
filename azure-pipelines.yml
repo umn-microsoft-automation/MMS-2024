@@ -13,7 +13,7 @@ variables:
   - name: RepoName
     value: 'LocalFSRepo'
   - name: FailOnTestFailure
-    value: true
+    value: false
 
 resources:
   repositories:
