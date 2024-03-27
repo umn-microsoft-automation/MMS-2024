@@ -94,14 +94,14 @@ Describe "Get-AzureBilling" {
                 $date = '202311'
                 $accessToken = 'valid_access_token'
                 Mock Get-AzureBilling {}
-                Get-AzureBilling -enrollment $enrollment -accessToken $accessToken -billingPeriod $date | should -Exist
+                Get-AzureBilling -enrollment $enrollment -accessToken $accessToken -date $date | should -Exist
             }
             It "Should have the following properties returned -Property subscriptionGuid,extendedCost"{
                 $enrollment = '12345'
                 $date = '202311'
                 $accessToken = 'valid_access_token'
                 Mock Get-AzureMarketplaceConsumption {return @{ subscriptionGuid = "valid_guid";extendedCost = "valid_cost"}}
-                $return = Get-AzureMarketplaceConsumption -accessToken $accessToken -enrollment $enrollment -billingPeriod $date
+                $return = Get-AzureMarketplaceConsumption -accessToken $accessToken -enrollment $enrollment -billingperiod $date
                 $return.subscriptionGuid | Should -Be "valid_guid"
                 $return.extendedCost | Should -Be "valid_cost"
             }
@@ -111,17 +111,17 @@ Describe "Get-AzureBilling" {
 
                 {Get-AzureBilling} | Should -Throw
 
-                {Get-AzureBilling -enrollment '12345'} | should Throw
+                {Get-AzureBilling -enrollment '12345'} | should -Throw
 
-                {Get-AzureBilling -date '202311'} | should Throw
+                {Get-AzureBilling -date '202311'} | should -Throw
 
-                {Get-AzureBilling -accessToken 'valid_access_token'} | should Throw
+                {Get-AzureBilling -accessToken 'valid_access_token'} | should -Throw
 
-                {Get-AzureBilling -accessToken 'valid_access_token' -date '202311'} | should Throw
+                {Get-AzureBilling -accessToken 'valid_access_token' -date '202311'} | should -Throw
 
-                {Get-AzureBilling -accessToken 'valid_access_token' -enrollment '12345'} | should Throw
+                {Get-AzureBilling -accessToken 'valid_access_token' -enrollment '12345'} | should -Throw
 
-                {Get-AzureBilling -date '202311' -enrollment '12345'} | should Throw
+                {Get-AzureBilling -date '202311' -enrollment '12345'} | should -Throw
 
             }
         }
