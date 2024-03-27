@@ -25,3 +25,7 @@ PlatyPS - instant MarkDown help files.
 <https://github.com/PowerShell/platyPS>
 
 Install-Module -Name PlatyPS -Force -SkipPublisherCheck
+
+## Deploy Status
+
+[![Build Status](https://dev.azure.com/kcweeks/MMS-2024/_apis/build/status%2Fumn-microsoft-automation.MMS-2024?repoName=umn-microsoft-automation%2FMMS-2024&branchName=main&stageName=Deploy)](https://dev.azure.com/kcweeks/MMS-2024/_build/latest?definitionId=2&repoName=umn-microsoft-automation%2FMMS-2024&branchName=main)
