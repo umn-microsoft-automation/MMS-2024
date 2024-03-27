@@ -89,12 +89,12 @@ BeforeAll {
 
 Describe "Get-AzureBilling" {
         Context "Should accept variable set to get market data" {
-            It "Should accept accessToken, enrollment for date" {
+            It "Should accept accessToken, enrollment, date" {
                 $enrollment = '12345'
                 $date = '202311'
                 $accessToken = 'valid_access_token'
-                Mock Get-AzureBilling {}
-                Get-AzureBilling -enrollment $enrollment -accessToken $accessToken -date $date | should -Exist
+                Mock Get-AzureBilling {return "valid_data"}
+                Get-AzureBilling -enrollment $enrollment -accessToken $accessToken -date $date | should -be "valid_data"
             }
             It "Should have the following properties returned -Property subscriptionGuid,extendedCost"{
                 $enrollment = '12345'
