@@ -4,5 +4,4 @@
     "Pester"           = "5.*"
     "PowerShellGet"    = "2.*"
     "PSScriptAnalyzer" = "1.*"
-    "UMN-Azure"        = "1.*"
 }
