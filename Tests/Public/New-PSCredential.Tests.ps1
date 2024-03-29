@@ -3,6 +3,30 @@ BeforeAll {
 }
 
 Describe "New-PSCredential" {
+    Describe "Get-AzLoginUserToken" {
+        Context "Should accept variable sets to create a credential" {
+            $username = 'Test'
+            $password = 'Password'| ConvertTo-SecureString -AsPlainText -Force
+
+            It "Should accept username and password" {
+                New-PSCredential -username $username -password $password |should -Not -BeNullOrEmpty
+            }
+            It "Should return a PSCredential Object"{
+                $return = New-PSCredential -username $username -password $password
+                $return.GetType().Name |should -Be "PSCredential"
+            }
+        Context "Without required parameters" {
+            It "should throw an error" {
+                {New-PSCredential} | Should -Throw
+
+                {$return1 = New-PSCredential -username 'username'
+                $return1 | Should -BeNullOrEmpty}
+
+                {$return2 = New-PSCredential -password 'password'
+                $return2 | Should -BeNullOrEmpty}
+            }
+        }
+    }
     Context "Tests for New-PSCredential" {
         BeforeAll{
         $help = Get-Help New-PSCredential
@@ -25,5 +49,6 @@ Describe "New-PSCredential" {
             }
         }
         }
-}
+    }
+    }
 }
