@@ -6,7 +6,7 @@ Pipeline DevOps sample project
 
 ## Static Code Analysis
 
-PS Script Analyzer <https://pester.dev/docs/quick-start/>
+PS Script Analyzer
 
 <https://www.powershellgallery.com/packages/PSScriptAnalyzer>
 
@@ -14,7 +14,7 @@ Install-Module -Name psscriptanalyzer -Force -SkipPublisherCheck
 
 ## Unit testing your stuff
 
-Using Pester Tests
+Using Pester Tests <https://pester.dev/docs/quick-start/>
 
 <https://www.powershellgallery.com/packages/Pester/5.5.0>
 
