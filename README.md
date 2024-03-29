@@ -20,7 +20,7 @@ Using Pester Tests
 
 Install-Module -Name Pester -Force -SkipPublisherCheck
 
-## Documentatino help
+## Documentation help
 
 PlatyPS - instant MarkDown help files.
 
