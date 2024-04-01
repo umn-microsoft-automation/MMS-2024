@@ -3,15 +3,16 @@ BeforeAll {
 }
 
 Describe "New-PSCredential" {
-    Describe "Get-AzLoginUserToken" {
+    Describe "New-PSCredential Tests" {
         Context "Should accept variable sets to create a credential" {
-            $username = 'Test'
-            $password = 'Password'| ConvertTo-SecureString -AsPlainText -Force
-
             It "Should accept username and password" {
+                $username = 'Test'
+                $password = 'Password'| ConvertTo-SecureString -AsPlainText -Force
                 New-PSCredential -username $username -password $password |should -Not -BeNullOrEmpty
             }
             It "Should return a PSCredential Object"{
+                $username = 'Test'
+                $password = 'Password'| ConvertTo-SecureString -AsPlainText -Force
                 $return = New-PSCredential -username $username -password $password
                 $return.GetType().Name |should -Be "PSCredential"
             }
