@@ -1,5 +1,5 @@
-mode: ContinuousDelivery
-next-version: 1.0.0
+mode: ContinuousDeployment
+next-version: 1.2.1
 major-version-bump-message: '\+semver:\s?(breaking|major)'
 minor-version-bump-message: '\+semver:\s?(feature|minor)'
 patch-version-bump-message: '\+semver:\s?(fix|patch)'
