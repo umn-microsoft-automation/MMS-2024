@@ -1,7 +1,5 @@
 function New-PSCredential
 {
-
-
     [Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSAvoidUsingConvertToSecureStringWithPlainText', '', Justification='This is needed when doing self password generation of random string characters.')]
     [Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSAvoidUsingUsernameAndPasswordParams', '', Justification='This is needed when doing self password generation of random string characters.')]
     [Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSAvoidUsingPlainTextForPassword', '', Justification='This is needed when doing self password generation of random string characters.')]
